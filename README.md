@@ -1,8 +1,8 @@
-# Análisis de Datos con Python – Días 1, 2, 3 y 4
+# Análisis de Datos con Python – Días 1, 2, 3, 4 y 5
 
 ## Descripción
 Proyecto introductorio de análisis de datos usando Python.  
-Corresponde a los Días 1, 2, 3 y 4 del módulo de Python dentro del curso de Análisis de Datos.
+Corresponde a los Días 1, 2, 3, 4 y 5 del módulo de Python dentro del curso de Análisis de Datos.
 
 El proyecto cubre la configuración del entorno de trabajo, la extracción, limpieza, transformación y análisis de datos, utilizando múltiples fuentes y técnicas comunes en contextos reales de análisis de datos.
 
@@ -117,6 +117,58 @@ Notebook:
 
 ---
 
+## Día 5 – Manejo de Datos Faltantes y Valores Atípicos
+
+En este día se trabajó un pipeline completo de preparación de datos enfocado en dos de los problemas más críticos del análisis de datos: **datos faltantes (missing values)** y **valores atípicos (outliers)**.
+
+### 1. Detección y análisis de datos faltantes
+Se analizaron patrones y magnitudes de datos faltantes considerando su impacto analítico:
+
+- Identificación de valores nulos con `isnull()` y `info()`
+- Cálculo de porcentajes de datos faltantes por columna
+- Análisis de patrones de missing values por departamento
+- Visualización de valores faltantes utilizando la librería `missingno`
+
+Se discutieron los tipos de datos faltantes:
+- MCAR (Completamente al azar)
+- MAR (Al azar)
+- MNAR (No al azar)
+
+### 2. Estrategias de imputación
+Se aplicaron distintas técnicas de imputación según el tipo de variable y el contexto analítico:
+
+- Imputación por **media** para `horas_trabajo`
+- Imputación por **mediana** para `salario`, por su robustez frente a outliers
+- Verificación posterior de ausencia total de valores faltantes
+
+### 3. Detección de valores atípicos (outliers)
+Se identificaron outliers mediante métodos estadísticos:
+
+- Método del **Rango Intercuartílico (IQR)**
+- Comparación de la cantidad de outliers antes y después del tratamiento
+- Análisis del impacto de los valores extremos en estadísticas descriptivas
+
+### 4. Manejo de valores atípicos
+Se aplicaron estrategias diferenciadas según la variable:
+
+- **Horas de trabajo**: capping de valores máximos en 60 horas
+- **Salario**: transformación logarítmica (`log1p`) para reducir asimetría y el impacto de valores extremos
+
+Se verificó la efectividad mediante:
+- Estadísticas descriptivas antes y después
+- Reducción del número de outliers
+- Visualización con boxplots comparativos
+
+### Evidencia del ejercicio
+Se generó un archivo Excel con múltiples hojas que documenta todo el proceso:
+
+Archivo:
+- `ejercicio_dia5_missing_outliers.xlsx`
+
+Notebook:
+- `dia5_missing_y_outliers.ipynb`
+---
+
 ## Estructura del proyecto
 
 ```text
@@ -125,8 +177,11 @@ analisis-datos-python/
 ├── dia2_extraccion_fuentes.ipynb
 ├── dia3_limpieza_y_transformacion_datos.ipynb
 ├── dia4_filtrado_groupby_merge.ipynb
+├── dia5_missing_y_outliers.ipynb
 ├── comparacion_limpieza_dia3.xlsx
 ├── ejercicio_dia4_analisis_completo.xlsx
+├── ejercicio_dia5_missing_outliers.xlsx
+├── boxplot_salario_outliers_dia5.png
 ├── test_analisis.py
 ├── primer_grafico.png
 ├── ventas.csv
